@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>{{ top_part["index_title"]}}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href=" {{ static_url('css/bootstrap.css') }}">
+        <link rel="stylesheet" href=" {{ static_url('css/index.css') }}">
+    </head>
+    <body>
+        <div id="page-header">
+            <div id="avatar-div">
+                <img id="avatar-image" src="{{ static_url('img/avatar.png') }}" alt="avatar">
+                <div id="title-content">
+                    <div id="title-body">{{ top_part["index_title"] }}</div>
+                    <div id="title-motto"><small>{{ top_part["subtitle"] }}</small></div>
+                </div>
+            </div>
+        </div>
+        <div id="nav-bar">
+            <div id="nav-content">
+                {% for (content, url) in top_part["navbar"][:-1] %}
+                <a class="nav-font" href="{{ url }}">{{ content }}</a>
+                    <span class="separator">|</span>
+                {% end %}
+                <!-- 用tuple是为了节省内存，不过缺导致了这一行代码可读性不佳 -->
+                <a class="nav-font" href="{{ top_part['navbar'][-1][1] }}">{{ top_part['navbar'][-1][0] }}</a>
+            </div>
+        </div>
+        <div class="container">
+            <div class="col-md-3" id="tags">
+                <div id="announcement">{{ top_part["announcement"] }}</div>
+            </div>
+            <div class="col-md-9" id="posts">
+                {% block posts %}
+                {% end %}
+            </div>
+        </div>
+        </div>
+    </body>
+</html>

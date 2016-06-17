@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+
+{% block posts %}
+    {% for i in range(20) %}
+        <div class="row post-div">
+            <p class="col-xs-3 post-div-time">2012-05-06</p>
+            <a class="col-xs-9 post-div-title" href="#">这是一篇文章的标题</a>
+        </div>
+    {% end %}
+{% end %}
