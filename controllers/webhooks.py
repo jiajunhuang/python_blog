@@ -26,8 +26,9 @@ class GithubWebHooksHandler(tornado.web.RequestHandler):
             return
 
         # 下面的操作是阻塞的-。- 暂且不用celery试试看
-        repo = git.Repo(__file__)
-        repo.pull()
+        repo = git.Repo(Config().repo_path)
+        origin = repo.remotes.origin
+        origin.pull()
 
         for submodule in repo.submodules:
             submodule.update(init=True)
