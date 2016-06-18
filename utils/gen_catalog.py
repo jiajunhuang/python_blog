@@ -1,6 +1,7 @@
 # coding: utf-8
 
 import os
+import re
 import operator
 
 from config import Config
@@ -10,12 +11,14 @@ from utils.singleton import Singleton
 class Catalog(metaclass=Singleton):
     def __init__(self):
         catalog = []
+        r = re.compile(Config().filename_format)
 
         for filename in os.listdir(Config().posts_path):
-            if filename[0] in "0123456789":  # 列出以规定日期格式开头的文章，这个方法好像有点傻-。-
+            result = r.match(filename)  # match or not
+            if result:
+                date = result.group(1)
                 with open(os.path.join("./posts", filename)) as f:
-                    title = None
-                    date = filename.split(".")[0]
+                    date = date.replace("_", "-")
                     title = f.readline()
                     catalog.append((title, date, filename))
 
