@@ -19,8 +19,10 @@ class Config(metaclass=Singleton):
         index_title="Jiajun's Blog",  # 网站首页的标题，以及顶部的标题
         subtitle="你的眼睛能看多远",  # 网站顶部的标题下面的话
         avatar_img="static/img/avatar.png",  # 网站顶部的头像
-        announcement="这里的文章都是选作Demo的，真正的博客请移步https://github.com/jiajunhuang/blog",  # 网站首页旁边的公告栏
+        announcement="会当凌绝顶，一览众山小。 -- 杜甫《望岳》",  # 网站首页旁边的公告栏
         disqus_site_name="gansteedeblog",  # disqus site name
+        github="https://github.com/jiajunhuang",  # footer
+        username="jiajunhuang",  # footer
     )
 
     template_path = os.path.join(os.path.dirname(__file__), "templates")  # 模板的路径
