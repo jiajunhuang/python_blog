@@ -5,10 +5,10 @@
     <div id="announcement">{{ top_part["announcement"] }}</div>
 </div>
 <div class="col-md-9" id="posts">
-    {% for i in range(20) %}
+    {% for title, date, filename in catalog %}
     <div class="row post-div">
-        <p class="col-xs-3 post-div-time">2012-05-06</p>
-        <a class="col-xs-9 post-div-title" href="/post">这是一篇文章的标题</a>
+        <p class="col-xs-3 post-div-time">{{ date }}</p>
+        <a class="col-xs-9 post-div-title" href="{{ article_url(filename) }}">{{ title }}</a>
     </div>
     {% end %}
 </div>

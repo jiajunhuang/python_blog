@@ -22,6 +22,14 @@ class Config(metaclass=Singleton):
         announcement="Stand on the shoulders of giants, observing details of the world.",  # 网站首页旁边的公告栏
     )
 
-    template_path = os.path.join(os.path.dirname(__file__), "templates")
-    static_path = os.path.join(os.path.dirname(__file__), "static")
-    posts_path = os.path.join(os.path.dirname(__file__), "posts")
+    template_path = os.path.join(os.path.dirname(__file__), "templates")  # 模板的路径
+    static_path = os.path.join(os.path.dirname(__file__), "static")  # 静态文件的路径
+    posts_path = os.path.join(os.path.dirname(__file__), "posts")  # posts文件夹的路径
+    article_img_path = os.path.join(posts_path, "img")  # 纯文本文件中 .. image:: img.png 的存储路径
+
+    def article_path(self, filename):  # 获取某篇文章的具体路径
+        return os.path.join(self.posts_path, filename)
+
+    @staticmethod
+    def article_url(filename):  # 生成文章url所用的函数
+        return os.path.join("./article", filename)
