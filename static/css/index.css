@@ -104,4 +104,5 @@ html {
     font-size: 1.2rem;
     padding: 1.0rem 1.0rem 1.0rem 1.0rem;
     background-color: #f3f3f3;
+    word-break: break-all;
 }
