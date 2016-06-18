@@ -34,7 +34,11 @@
             {% block container %}
             这是网站的下半部分，index为文章列表，博客页为博客内容
             {% end %}
-        </div>
+            <div class="comments">
+                {% block comments %}
+                <!-- disqus js 或者 多说js放在这里 -->
+                {% end %}
+            </div>
         </div>
     </body>
 </html>
