@@ -6,6 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href=" {{ static_url('css/bootstrap.css') }}">
         <link rel="stylesheet" href=" {{ static_url('css/index.css') }}">
+        {% block extend_head %}
+        <!-- 扩展头部，例如css，js -->
+        {% end %}
     </head>
     <body>
         <div id="page-header">
@@ -21,20 +24,16 @@
             <div id="nav-content">
                 {% for (content, url) in top_part["navbar"][:-1] %}
                 <a class="nav-font" href="{{ url }}">{{ content }}</a>
-                    <span class="separator">|</span>
+                <span class="separator">|</span>
                 {% end %}
                 <!-- 用tuple是为了节省内存，不过缺导致了这一行代码可读性不佳 -->
                 <a class="nav-font" href="{{ top_part['navbar'][-1][1] }}">{{ top_part['navbar'][-1][0] }}</a>
             </div>
         </div>
         <div class="container">
-            <div class="col-md-3" id="tags">
-                <div id="announcement">{{ top_part["announcement"] }}</div>
-            </div>
-            <div class="col-md-9" id="posts">
-                {% block posts %}
-                {% end %}
-            </div>
+            {% block container %}
+            这是网站的下半部分，index为文章列表，博客页为博客内容
+            {% end %}
         </div>
         </div>
     </body>

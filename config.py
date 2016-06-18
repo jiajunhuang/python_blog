@@ -11,7 +11,7 @@ class Config:
     top_part = dict(
         navbar=[
             ("首页", "/"),
-            ("Github", "https://github.com/jiajunhuang.com"),
+            ("Github", "https://github.com/jiajunhuang"),
             ("关于我", "/aboutme")
         ],  # navbar这一栏的内容，将按照列表的顺序生成
         index_title="Jiajun's Blog",  # 网站首页的标题，以及顶部的标题
@@ -22,3 +22,4 @@ class Config:
 
     template_path = os.path.join(os.path.dirname(__file__), "templates")
     static_path = os.path.join(os.path.dirname(__file__), "static")
+    posts_path = os.path.join(os.path.dirname(__file__), "posts")
