@@ -32,6 +32,9 @@ class GithubWebHooksHandler(tornado.web.RequestHandler):
         for submodule in repo.submodules:
             submodule.update(init=True)
 
+        # 然后重启进程
+        tornado.autoreload.start()
+
     def _validate_signature(self, data):
         sha_name, signature = self.request.headers.get('X-Hub-Signature').split('=')
         if sha_name != 'sha1':
