@@ -42,5 +42,5 @@ class GithubWebHooksHandler(tornado.web.RequestHandler):
             return False
 
         # HMAC requires its key to be bytes, but data is strings.
-        mac = hmac.new(Config().github_secret_key, msg=data, digestmod=hashlib.sha1)
+        mac = hmac.new(bytes(Config().github_secret_key, "utf-8"), msg=data, digestmod=hashlib.sha1)
         return hmac.compare_digest(mac.hexdigest(), signature)
