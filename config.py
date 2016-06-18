@@ -39,3 +39,8 @@ class Config(metaclass=Singleton):
     @staticmethod
     def article_url(filename):  # 生成文章url所用的函数
         return os.path.join("./article", filename)
+
+    @property
+    def github_secret_key(self):
+        with open(self.github_webhook_secret_path) as f:
+            return f.readline()[:-1]

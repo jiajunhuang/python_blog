@@ -11,7 +11,7 @@ from config import Config
 from controllers.aboutme import AboutMeHandler
 from controllers.index import IndexHandler
 from controllers.article import ArticleHandler
-from controllers.webhooks import WebHooksHandler
+from controllers.webhooks import GithubWebHooksHandler
 
 from tornado.options import define, options, parse_command_line
 define("debug", default=False, type=bool, help="debug is set to True if this option is set")
@@ -26,7 +26,7 @@ class Application(tornado.web.Application):
             (r"/article/img/(.+)", tornado.web.StaticFileHandler, {"path": Config().article_img_path}),
             (r"/article/(.+)/?", ArticleHandler),
             (r"/aboutme(.rst)?/?", AboutMeHandler),
-            (r"/webhooks/?", WebHooksHandler),
+            (r"/webhooks/?", GithubWebHooksHandler),
         ]
         settings = {
             "template_path": Config().template_path,
