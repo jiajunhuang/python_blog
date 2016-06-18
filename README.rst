@@ -11,7 +11,8 @@ rst，全称 ``reStructuredText`` ，也是一种标记文档。在Markdown异�
 效果
 ------
 
-.. image:: ./screenshot.png
+.. image:: ./screenshot0.png
+.. image:: ./screenshot1.png
 
 开始配置
 -----------
