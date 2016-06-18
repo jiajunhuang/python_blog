@@ -3,7 +3,6 @@
 import os
 import hmac
 import hashlib
-import json
 
 import tornado.web
 import git
@@ -20,7 +19,7 @@ class GithubWebHooksHandler(tornado.web.RequestHandler):
             self.finish()
             return
 
-        data = json.loads(self.request.body.decode())
+        data = self.request.body
         if not self._validate_signature(data):
             self.finish()
             return
