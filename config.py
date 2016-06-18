@@ -26,6 +26,7 @@ class Config(metaclass=Singleton):
     static_path = os.path.join(os.path.dirname(__file__), "static")  # 静态文件的路径
     posts_path = os.path.join(os.path.dirname(__file__), "posts")  # posts文件夹的路径
     article_img_path = os.path.join(posts_path, "img")  # 纯文本文件中 .. image:: img.png 的存储路径
+    text_type = "rst"  # 设置写作所用标记文本类型
 
     def article_path(self, filename):  # 获取某篇文章的具体路径
         return os.path.join(self.posts_path, filename)
