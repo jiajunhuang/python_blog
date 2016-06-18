@@ -2,11 +2,13 @@
 
 import os
 
+from utils.singleton import Singleton
+
 # 这里是首页的大部分内容，例如箴言，等等。将在启动项目的时候导入，并且
 # 缓存在内存中。
 
 
-class Config:
+class Config(metaclass=Singleton):
     # 顶栏所需要的信息
     top_part = dict(
         navbar=[
