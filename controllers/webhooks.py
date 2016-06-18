@@ -20,7 +20,7 @@ class GithubWebHooksHandler(tornado.web.RequestHandler):
             self.finish()
             return
 
-        data = json.loads(self.request.body)
+        data = json.loads(self.request.body.decode())
         if not self._validate_signature(data):
             self.finish()
             return
