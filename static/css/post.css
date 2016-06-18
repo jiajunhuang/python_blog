@@ -40,3 +40,7 @@
     margin: 1.0rem auto;
     border: 5px solid #eee8ab;
 }
+
+.reference {
+    word-break: break-all;
+}
