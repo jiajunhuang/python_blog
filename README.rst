@@ -110,8 +110,3 @@ rst，全称 ``reStructuredText`` ，也是一种标记文档。在Markdown异�
 
 另外配置了Tornado的autoreload项为True，并且添加了对posts目录的监听，所以只要该目录
 有改动，进程就会自动重启。
-
-收获
------
-
-这次写这个小项目的主要收获是前端方面的收获，更加熟悉了CSS布局等。
