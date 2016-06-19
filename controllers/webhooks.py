@@ -16,13 +16,11 @@ class GithubWebHooksHandler(tornado.web.RequestHandler):
 
     def post(self):
         if not os.path.exists(Config().github_webhook_secret_path):
-            self.finish()
-            return
+            raise tornado.web.HTTPError(500, "secret.txt does not exists")
 
         data = self.request.body
         if not self._validate_signature(data):
-            self.finish()
-            return
+            raise tornado.web.HTTPError(500, "signature not valid")
 
         # 下面的操作是阻塞的-。- 暂且不用celery试试看
         repo = git.Repo(Config().repo_path)
