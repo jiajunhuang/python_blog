@@ -1,9 +1,3 @@
-Deprecated.
-
-为了不需要同时提交两个仓库，已经把代码合并到 https://github.com/jiajunhuang/blog
-了。此仓库不再更新。请移步 https://github.com/jiajunhuang/blog 。谢谢！
-
-
 如何使用
 ==========
 
